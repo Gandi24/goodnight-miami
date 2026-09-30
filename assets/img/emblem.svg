@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 30 600 450">
+  <defs>
+    <clipPath id="disc"><circle cx="300" cy="250" r="210"/></clipPath>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0C0916"/>
+      <stop offset=".55" stop-color="#23122F"/>
+      <stop offset="1" stop-color="#4A1739"/>
+    </linearGradient>
+    <radialGradient id="moonGlow">
+      <stop offset="0" stop-color="#E4DDCB" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#E4DDCB" stop-opacity="0"/>
+    </radialGradient>
+    <path id="frond" d="M0 0 C 26 -22, 62 -18, 92 12 C 60 -4, 30 -6, 0 0 Z"/>
+    <g id="crown">
+      <use href="#frond" transform="rotate(-8)"/>
+      <use href="#frond" transform="rotate(-40) scale(.95)"/>
+      <use href="#frond" transform="rotate(-80) scale(.8)"/>
+      <use href="#frond" transform="rotate(20) scale(.9)"/>
+      <use href="#frond" transform="scale(-1,1) rotate(-8)"/>
+      <use href="#frond" transform="scale(-1,1) rotate(-42) scale(.95)"/>
+      <use href="#frond" transform="scale(-1,1) rotate(18) scale(.9)"/>
+      <use href="#frond" transform="scale(-1,1) rotate(-78) scale(.75)"/>
+    </g>
+  </defs>
+  <g clip-path="url(#disc)">
+    <rect x="0" y="0" width="600" height="560" fill="url(#sky)"/>
+    <circle cx="392" cy="150" r="120" fill="url(#moonGlow)"/>
+    <circle cx="392" cy="150" r="44" fill="#E4DDCB"/>
+    <circle cx="378" cy="140" r="9" fill="#CFC6B2"/>
+    <circle cx="404" cy="166" r="6" fill="#CFC6B2"/>
+    <g fill="#07060C">
+      <rect x="0" y="262" width="600" height="5"/>
+      <rect x="0" y="290" width="600" height="8"/>
+      <rect x="0" y="318" width="600" height="11"/>
+      <rect x="0" y="346" width="600" height="15"/>
+    </g>
+    <rect x="0" y="372" width="600" height="200" fill="#0F2A2E"/>
+    <rect x="0" y="392" width="600" height="6" fill="#07060C"/>
+    <rect x="0" y="414" width="600" height="9" fill="#07060C"/>
+    <g fill="#050409">
+      <path d="M214 400 C 206 330, 212 250, 244 170 L 252 172 C 222 250, 218 330, 226 400 Z"/>
+      <use href="#crown" transform="translate(248 170) scale(1.25)"/>
+      <path d="M468 400 C 470 350, 462 300, 440 250 L 446 247 C 470 298, 478 350, 478 400 Z"/>
+      <use href="#crown" transform="translate(442 248) scale(.8)"/>
+      <path d="M120 400 C 124 370, 118 330, 104 300 L 108 298 C 124 330, 130 370, 128 400 Z"/>
+      <use href="#crown" transform="translate(105 298) scale(.55)"/>
+    </g>
+  </g>
+  <circle cx="300" cy="250" r="210" fill="none" stroke="#2A2036" stroke-width="2"/>
+</svg>

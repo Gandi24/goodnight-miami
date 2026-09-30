@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Goodnight Miami · larp-audycja</title>
+  <meta name="description" content="Goodnight Miami to larp-audycja o nocnej stacji radiowej pod Miami. Posłuchaj design docu nagranego jako radiowe ogłoszenie. Autor: Jakub „Gandi” Wasielak.">
+  <meta name="author" content="Jakub „Gandi” Wasielak">
+  <meta name="theme-color" content="#07060C">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://goodnight-miami.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Goodnight Miami">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:url" content="https://goodnight-miami.com/">
+  <meta property="og:title" content="Goodnight Miami · larp-audycja">
+  <meta property="og:description" content="Nocna audycja Radia Lighthouse 92.3 FM. Posłuchaj design docu larpa nagranego jako radiowe ogłoszenie.">
+  <meta property="og:image" content="https://goodnight-miami.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo Goodnight Miami: księżyc nad palmami i neonowy napis, obok stare radio.">
+  <meta property="og:audio" content="https://goodnight-miami.com/assets/audio/goodnight-miami-dd.mp3">
+  <meta property="og:audio:type" content="audio/mpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Goodnight Miami · larp-audycja">
+  <meta name="twitter:description" content="Nocna audycja Radia Lighthouse 92.3 FM. Posłuchaj design docu larpa nagranego jako radiowe ogłoszenie.">
+  <meta name="twitter:image" content="https://goodnight-miami.com/assets/img/og-image.png">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/radio.js" defer></script>
+</head>
+<body>
+<div class="page">
+  <header class="station">
+    <div class="station__name">
+      <span class="onair" aria-hidden="true">ON AIR</span>
+      <span>Radio Lighthouse 92.3 FM</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="title">
+      <div class="hero__brand">
+        <div class="emblem">
+          <svg viewBox="0 30 600 450" aria-hidden="true">
+            <defs>
+              <clipPath id="disc"><circle cx="300" cy="250" r="210"/></clipPath>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0C0916"/>
+                <stop offset=".55" stop-color="#23122F"/>
+                <stop offset="1" stop-color="#4A1739"/>
+              </linearGradient>
+              <radialGradient id="moonGlow">
+                <stop offset="0" stop-color="#E4DDCB" stop-opacity=".35"/>
+                <stop offset="1" stop-color="#E4DDCB" stop-opacity="0"/>
+              </radialGradient>
+              <path id="frond" d="M0 0 C 26 -22, 62 -18, 92 12 C 60 -4, 30 -6, 0 0 Z"/>
+              <g id="crown">
+                <use href="#frond" transform="rotate(-8)"/>
+                <use href="#frond" transform="rotate(-40) scale(.95)"/>
+                <use href="#frond" transform="rotate(-80) scale(.8)"/>
+                <use href="#frond" transform="rotate(20) scale(.9)"/>
+                <use href="#frond" transform="scale(-1,1) rotate(-8)"/>
+                <use href="#frond" transform="scale(-1,1) rotate(-42) scale(.95)"/>
+                <use href="#frond" transform="scale(-1,1) rotate(18) scale(.9)"/>
+                <use href="#frond" transform="scale(-1,1) rotate(-78) scale(.75)"/>
+              </g>
+            </defs>
+
+            <g clip-path="url(#disc)">
+              <rect x="0" y="0" width="600" height="560" fill="url(#sky)"/>
+              <circle cx="392" cy="150" r="120" fill="url(#moonGlow)"/>
+              <circle cx="392" cy="150" r="44" fill="#E4DDCB"/>
+              <circle cx="378" cy="140" r="9" fill="#CFC6B2"/>
+              <circle cx="404" cy="166" r="6" fill="#CFC6B2"/>
+              <!-- horizon stripes -->
+              <g fill="#07060C">
+                <rect x="0" y="262" width="600" height="5"/>
+                <rect x="0" y="290" width="600" height="8"/>
+                <rect x="0" y="318" width="600" height="11"/>
+                <rect x="0" y="346" width="600" height="15"/>
+              </g>
+              <rect x="0" y="372" width="600" height="200" fill="#0F2A2E"/>
+              <rect x="0" y="392" width="600" height="6" fill="#07060C"/>
+              <rect x="0" y="414" width="600" height="9" fill="#07060C"/>
+              <!-- palms -->
+              <g fill="#050409">
+                <path d="M214 400 C 206 330, 212 250, 244 170 L 252 172 C 222 250, 218 330, 226 400 Z"/>
+                <use href="#crown" transform="translate(248 170) scale(1.25)"/>
+                <path d="M468 400 C 470 350, 462 300, 440 250 L 446 247 C 470 298, 478 350, 478 400 Z"/>
+                <use href="#crown" transform="translate(442 248) scale(.8)"/>
+                <path d="M120 400 C 124 370, 118 330, 104 300 L 108 298 C 124 330, 130 370, 128 400 Z"/>
+                <use href="#crown" transform="translate(105 298) scale(.55)"/>
+              </g>
+            </g>
+            <circle cx="300" cy="250" r="210" fill="none" stroke="#2A2036" stroke-width="2"/>
+          </svg>
+
+          <h1 class="logo" id="title"><span class="logo__good">Goodnight</span><span class="logo__miami">Miami</span></h1>
+        </div>
+
+        <p class="tagline">Larp-audycja dla wszystkich zbłąkanych dusz, które nie boją się dźwięku własnego głosu.</p>
+        <p class="byline">Autor: <strong>Jakub „Gandi” Wasielak</strong></p>
+      </div>
+
+      <div class="hero__radio">
+        <div class="radio">
+          <div class="dial" aria-hidden="true">
+            <div class="dial__scale" id="scale"></div>
+          </div>
+
+          <div class="grille"><canvas id="scope" aria-hidden="true"></canvas></div>
+
+          <div class="deck">
+            <button class="knob" id="play" type="button" aria-label="Słuchaj audycji">
+              <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></svg>
+              <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 4h4.5v16H6zM13.5 4H18v16h-4.5z"/></svg>
+            </button>
+            <div class="transport">
+              <input class="seek" id="seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Przewiń nagranie">
+              <div class="transport__time"><output id="cur">0:00</output><output id="dur">4:25</output></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <audio id="audio" src="assets/audio/goodnight-miami-dd.mp3" preload="metadata"></audio>
+    </section>
+
+    <section class="about" aria-labelledby="about-title">
+      <div class="about__lead">
+        <h2 id="about-title">O audycji</h2>
+        <p>Goodnight Miami to larp-audycja. Gracze wcielają się w obsługę stacji radiowej położonej daleko od miasta i przez całą grę dbają o to, żeby audycja trwała. Puszczają muzykę, odbierają telefony i rozmawiają ze słuchaczami na antenie.</p>
+        <p>Tego wieczoru Miami nie zaśnie spokojnie. Do portu zawinął właśnie nieoznakowany kuter, który na zawsze odmieni los tego miasta.</p>
+      </div>
+
+      <dl class="facts">
+        <dt>Autor</dt>
+        <dd class="author">Jakub „Gandi” Wasielak</dd>
+        <dt>Tematy trudne</dt>
+        <dd>
+          <ul class="triggers">
+            <li>śmierć</li><li>samobójstwo</li><li>śmierć bliskiej osoby</li><li>epidemia</li><li>ciemność</li><li>zombie</li><li>broń palna</li>
+          </ul>
+        </dd>
+        <dt>Inspiracje</dt>
+        <dd><i>Pontypool</i>, <i>1-800-oświecenie</i></dd>
+      </dl>
+
+      <p class="recording"><strong>Uwaga, audycja będzie nagrywana.</strong> To pierwsza edycja larpa i wierzę, że razem stworzymy audycję, którą będzie można przeżyć także jako słuchacz, a nie tylko jako gracz. Dlatego poprosimy uczestników o zgodę na nieodpłatne udostępnienie nagrania. Nic nie zostanie opublikowane bez wcześniejszej akceptacji.</p>
+    </section>
+
+    <section class="transcript-wrap" aria-labelledby="t-title">
+      <div class="transcript-head">
+        <h2 id="t-title">Zapis audycji</h2>
+        <p>Pełny tekst nagrania, jeśli wolisz czytać.</p>
+        <button class="toggle" id="tToggle" type="button" aria-expanded="false" aria-controls="transcript">
+          <span>Pokaż pełny zapis</span>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <article class="transcript is-collapsed" id="transcript">
+        <p>Drodzy słuchacze, pora na ogłoszenia. Wszystkie zbłąkane dusze zapraszamy na audycję Goodnight Miami, tylko w radiu Lighthouse, w każdy piątek od 9 wieczór do… północy.</p>
+        <p>Gdy duszne powietrze dziękuje za upalny dzień na plaży, jego miejsce zajmuje nocna bryza. A wraz z wieczorną ciszą, nasze uszy są jeszcze bardziej wyczulone. Co usłyszymy tym razem? Czy będzie to miłosne wyznanie? A może tym razem czeka nas krzyk rozpaczy?</p>
+        <p>Nasza linia będzie otwarta przez całą audycję, podczas której każdy może podzielić się swoją historią dzwoniąc na (305) 550-1000. Dziś natomiast odpowiemy na pytania nadesłane pocztą.</p>
+
+        <p class="letter">Mark Spencer z Wynwood</p>
+        <p>Mark Spencer z Wynwood pyta, dla kogo jest audycja Goodnight Miami? Doskonałe pytanie Mark. Goodnight Miami jest stworzona dla każdego miłośnika dreszczyku i pełnej immersji. Każdy kto weźmie udział w audycji będzie jej nie tylko doświadczał – on będzie ją tworzył! Pamiętajcie, że taśma jest wieczna, a to co raz pójdzie w eter, zostanie tam na zawsze. Tak, Goodnight Miami przyciągnie osoby, które nie boją się dźwięku własnego głosu. Bo to, czego należy bać się naprawdę, to… cisza.</p>
+
+        <p class="letter">Daniel Haze z Brickell</p>
+        <p>Daniel Haze z Brickell pisze „jak wygląda typowe nagranie?”. Drogi Danielu, gwarantuję – żadne nagranie audycji Goodnight Miami nie jest typowe. Ale tak, mają one elementy wspólne. Nasze gwiazdy, dwoje prowadzących zasiądzie przed mikrofonami, aby przez trzy godziny trwania audycji odpowiadać na telefony słuchaczy. Ależ oczywiście, telefony to nie wszystko, ponieważ w cieniu zawsze czuwa wierny realizator, dbający o nagrania i o muzykę umilającą chwile ciszy. Producent nagrania czuwa nad przebiegiem audycji, jest cichym reżyserem dyrygującym całą stacją i nadającym jej unikatowy klimat.</p>
+        <p>Drodzy słuchacze, drogi Danielu, zdradzę pewien sekret. Emocje w trakcie nagrań sięgają poziomów, które wymagają stałej obecności policji! No dobrze, może jednego policjanta. Po służbie. Który jest naszym najwierniejszym słuchaczem i osobistym przyjacielem.</p>
+
+        <p class="letter">Monica Blake z Overtown</p>
+        <p>Monica Blake z Overtown pyta, czy może nas odwiedzić. Kochana Monico, z przyjemnością otwarlibyśmy dla Ciebie nasze drzwi, ale musisz wiedzieć, że stacja radia Lighthouse to prawdziwa latarnia. No może nie prawdziwa, ale jednak oddalona od Miami o ponad godzinę jazdy, a do najbliższych sąsiadów mamy dwie mile. Nadajemy do Was z miejsca, gdzie każde pukanie do drzwi jest wielkim wydarzeniem.</p>
+
+        <p class="letter">Diana Knight z Liberty City</p>
+        <p>Diana Knight z Liberty City napisała, że chciała posłuchać audycji ze swoim czternastoletnim synem. Droga Diano, z przykrością musimy odradzić. Audycja jest wyłącznie dla pełnoletnich słuchaczy, a w trakcie rozmów mogą zostać poruszone takie tematy jak śmierć, samobójstwo, śmierć bliskich, epidemia, ciemność, zombie oraz broń palna.</p>
+
+        <p class="letter">Pytanie anonimowe</p>
+        <p>Mamy czas na ostatnie pytanie w sprawie audycji Goodnight Miami, otrzymaliśmy jedno pytanie zadane anonimowo, a brzmi ono: „Dlaczego to ja powinienem wziąć udział w nagraniu?” Myślę że wiem, drogi słuchaczu, myślę że znam cię lepiej niż ci się zdaje. Wiem, że szukasz tego lekkiego dreszczyku emocji, który sprawia że na skórze pojawia się gęsia skórka. Intymna atmosfera przytulnego studia miesza się z ekspozycją na setki słuchaczy, co budzi w Tobie lęk, ale i coś mocniejszego. Zainteresowanie.</p>
+        <p class="signoff">Jaką historię usłyszysz? Jaką historię nam opowiesz? Jak ta historia skończy się dla Ciebie? A przede wszystkim… Czy Miami zaśnie dziś spokojnie?</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Jakub „Gandi” Wasielak. Wszelkie prawa zastrzeżone.<br>Strona powstała przy pomocy Claude Code (Anthropic).</p>
+    <p>Radio Lighthouse, jego słuchacze i wszystkie postaci są fikcyjne. Podobieństwo do prawdziwych osób, stacji i zdarzeń jest przypadkowe.</p>
+  </footer>
+</div>
+</body>
+</html>

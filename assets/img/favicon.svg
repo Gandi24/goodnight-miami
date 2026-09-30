@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <clipPath id="c"><circle cx="32" cy="32" r="31"/></clipPath>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0C0916"/>
+      <stop offset=".6" stop-color="#2A1436"/>
+      <stop offset="1" stop-color="#5A1B45"/>
+    </linearGradient>
+    <path id="f" d="M0 0 C 4 -3.5, 9.5 -3, 14 2 C 9 -.6, 4.5 -1, 0 0 Z"/>
+  </defs>
+  <g clip-path="url(#c)">
+    <rect width="64" height="64" fill="url(#sky)"/>
+    <circle cx="41" cy="20" r="9" fill="#E4DDCB"/>
+    <rect y="40" width="64" height="2" fill="#07060C"/>
+    <rect y="45" width="64" height="3" fill="#07060C"/>
+    <rect y="50" width="64" height="14" fill="#0F2A2E"/>
+    <g fill="#050409">
+      <path d="M22 56 C 21 46, 22 36, 27 26 L 28.5 26.5 C 24 36, 23.5 46, 24.5 56 Z"/>
+      <g transform="translate(28 26)">
+        <use href="#f" transform="rotate(-10)"/>
+        <use href="#f" transform="rotate(-45) scale(.9)"/>
+        <use href="#f" transform="rotate(20) scale(.85)"/>
+        <use href="#f" transform="scale(-1,1) rotate(-10)"/>
+        <use href="#f" transform="scale(-1,1) rotate(-45) scale(.9)"/>
+        <use href="#f" transform="scale(-1,1) rotate(18) scale(.85)"/>
+      </g>
+    </g>
+  </g>
+  <circle cx="32" cy="32" r="31" fill="none" stroke="#B8367E" stroke-width="2"/>
+</svg>

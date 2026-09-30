@@ -1,0 +1,22 @@
+<!doctype html>
+<!-- Source for the PNG app icons: icon.html?size=180. Regenerate with tools/render-images.sh -->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; background: #07060C; overflow: hidden; }
+  div { background: #07060C; display: grid; place-items: center; }
+  img { display: block; width: 88%; height: 88%; }
+</style>
+</head>
+<body>
+<div id="box"><img src="../assets/img/favicon.svg" alt=""></div>
+<script>
+  // Headless Chrome has a minimum window width, so size the icon explicitly
+  // and let the screenshot crop the top-left corner.
+  const size = new URLSearchParams(location.search).get('size') || 512;
+  const box = document.getElementById('box');
+  box.style.width = box.style.height = size + 'px';
+</script>
+</body>
+</html>

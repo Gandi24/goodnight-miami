@@ -1,0 +1,95 @@
+<!doctype html>
+<!-- Source for assets/img/og-image.png (1200×630). Regenerate with tools/render-images.sh -->
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=block">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: radial-gradient(60% 70% at 28% 40%, #1F1230 0%, transparent 70%), #07060C;
+    color: #A79FB2;
+    display: grid;
+    grid-template-columns: 560px 1fr;
+    align-items: center;
+    padding: 0 72px 0 40px;
+    box-sizing: border-box;
+    font-family: "Newsreader", Georgia, serif;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 55%, #000000A0 100%);
+  }
+  .emblem { position: relative; width: 440px; margin: -40px auto 0; container-type: inline-size; }
+  .emblem img { display: block; width: 100%; }
+  .logo {
+    position: absolute; left: 0; right: 0; top: 52%;
+    margin: 0; text-align: center;
+    font-family: "Mr Dafoe", cursive; font-weight: 400; line-height: .8;
+  }
+  .logo span { display: block; }
+  .good {
+    font-size: 17cqw; color: #E4DDCB;
+    transform: rotate(-6deg) translateX(-14cqw);
+    text-shadow: 0 0 2px #000, 3px 3px 0 #07060C;
+  }
+  .miami {
+    margin-top: -1cqw; font-size: 33cqw; color: #B8367E;
+    transform: rotate(-6deg);
+    -webkit-text-stroke: 1.2cqw #07060C; paint-order: stroke fill;
+    text-shadow: 1.4cqw 1.4cqw 0 #2A8A88, 2.2cqw 2.2cqw 0 #07060C, 0 0 4cqw #B8367E66;
+  }
+  .copy { position: relative; z-index: 1; }
+  .station {
+    display: flex; align-items: center; gap: 14px;
+    font-family: "Bricolage Grotesque", sans-serif; font-variation-settings: "wdth" 85;
+    font-size: 24px; color: #A79FB2;
+  }
+  .onair {
+    padding: 3px 10px 4px; border-radius: 4px;
+    background: #B3261E; color: #FFD9D2;
+    font-weight: 800; font-size: 16px; letter-spacing: .14em;
+    box-shadow: 0 0 18px #B3261E99;
+  }
+  .tagline {
+    margin: 30px 0 0; font-style: italic; font-size: 40px; line-height: 1.25; color: #E4DDCB;
+  }
+  .dial {
+    position: relative; margin-top: 38px; height: 54px; border-radius: 8px;
+    background: radial-gradient(120% 160% at 50% 110%, #E0A04A 0%, #9A6526 55%, #4A2E12 100%);
+    box-shadow: inset 0 2px 8px #000A, 0 0 0 3px #1C1424;
+  }
+  .dial i { position: absolute; bottom: 8px; width: 1px; height: 12px; background: #2A1A0B; }
+  .dial i:nth-child(odd) { height: 7px; background: #2A1A0B99; }
+  .dial b { position: absolute; top: 4px; bottom: 4px; width: 3px; background: #8E1E1E; left: calc(12px + (100% - 24px) * .215); }
+  .author {
+    margin-top: 30px;
+    font-family: "Bricolage Grotesque", sans-serif; font-variation-settings: "wdth" 85;
+    font-size: 24px;
+  }
+  .author strong { color: #E4DDCB; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="emblem">
+    <img src="../assets/img/emblem.svg" alt="">
+    <h1 class="logo"><span class="good">Goodnight</span><span class="miami">Miami</span></h1>
+  </div>
+  <div class="copy">
+    <div class="station"><span class="onair">ON AIR</span>Radio Lighthouse 92.3 FM</div>
+    <p class="tagline">Larp-audycja dla wszystkich zbłąkanych dusz, które nie boją się dźwięku własnego głosu.</p>
+    <div class="dial" id="dial"><b></b></div>
+    <div class="author">Autor: <strong>Jakub „Gandi” Wasielak</strong></div>
+  </div>
+  <script>
+    const dial = document.getElementById('dial');
+    for (let i = 0; i <= 20; i++) {
+      const t = document.createElement('i');
+      t.style.left = `calc(12px + (100% - 24px) * ${i / 20})`;
+      dial.prepend(t);
+    }
+  </script>
+</body>
+</html>

@@ -154,14 +154,6 @@ body.is-live .onair {
   line-height: 1.45;
   color: var(--bone);
 }
-.byline {
-  margin: 6px 0 0;
-  font-family: var(--display);
-  font-variation-settings: "wdth" 85;
-  font-size: 1rem;
-  color: var(--fog);
-}
-.byline strong { color: var(--bone); font-weight: 600; }
 
 /* ---------- radio ---------- */
 .radio {

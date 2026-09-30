@@ -341,15 +341,51 @@ body.is-live .knob .i-pause { display: block; }
 
 .recording {
   grid-column: 1 / -1;
-  margin: 0;
-  padding: 18px 22px;
-  border-left: 3px solid #B3261E;
-  background: #120D18;
-  border-radius: 0 10px 10px 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px 24px;
+  align-items: start;
+  padding: 22px 26px 24px;
+  border: 1px solid #B3261E;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #2A0E12 0%, #1A0A10 100%);
+  box-shadow: 0 0 0 4px #B3261E1F, 0 0 40px -10px #B3261E66;
   font-size: 1rem;
-  color: var(--fog);
+  color: #D8C6C8;
 }
-.recording strong { color: var(--bone); font-weight: 600; }
+.recording p { margin: 0; max-width: 72ch; }
+.recording__rec {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 3px;
+  padding: 5px 12px 6px 10px;
+  border-radius: 4px;
+  background: #B3261E;
+  color: #FFE3DE;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  box-shadow: 0 0 18px #B3261E88;
+}
+.recording__rec span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #FFE3DE;
+  animation: rec-blink 1.6s steps(1, end) infinite;
+}
+@keyframes rec-blink { 50% { opacity: 0.15; } }
+.recording .recording__title {
+  margin-bottom: 6px;
+  font-family: var(--display);
+  font-variation-settings: "wdth" 85;
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: #FFE3DE;
+}
 
 /* ---------- transcript ---------- */
 .transcript-wrap {
@@ -437,6 +473,8 @@ footer p { margin: 0; max-width: 70ch; }
   .hero__radio { width: min(100%, 520px); margin: 0 auto; }
 }
 @media (max-width: 760px) {
+  .recording { grid-template-columns: 1fr; padding: 18px 18px 20px; }
+  .recording__rec { justify-self: start; }
   .transcript-wrap { grid-template-columns: 1fr; }
   .transcript-head { position: static; }
   .transcript { margin: 24px 0 0 -14px; }
@@ -449,6 +487,6 @@ footer p { margin: 0; max-width: 70ch; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .logo { animation: none; }
+  .logo, .recording__rec span { animation: none; }
   .dial__needle, .knob, .transcript p, .dial { transition: none; }
 }

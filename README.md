@@ -16,12 +16,15 @@ Autor: Jakub „Gandi” Wasielak
 
 ```
 index.html              strona główna
+ludzie-radia.html       karta postaci z muzyką, za hasłem (treść i utwory przez tools/soundtrack.gs)
 404.html                strona błędu dla GitHub Pages
 assets/css/style.css    style
+assets/css/soundtrack.css style karty postaci i kaset z utworami
 assets/js/radio.js      odtwarzacz: skala strojenia, fala w głośniku, śledzenie zapisu
+assets/js/soundtrack.js karta postaci: hasło, treść, kasety z utworami
 assets/audio/           nagranie design docu
 assets/img/             emblemat, favicon, ikony i obrazek do udostępniania (OG)
-tools/                  źródła HTML obrazków i skrypt do ich renderowania
+tools/                  źródła HTML obrazków, skrypt do ich renderowania i Apps Script płytoteki
 CNAME                   domena dla GitHub Pages
 ```
 

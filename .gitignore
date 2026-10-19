@@ -4,3 +4,6 @@ Thumbs.db
 .idea/
 .vscode/
 node_modules/
+# hasła, listy utworów i karty postaci, trzymane tylko w projekcie Apps Script
+tools/soundtrack-config.gs
+tools/sheets/

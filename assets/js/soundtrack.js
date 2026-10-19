@@ -22,8 +22,10 @@
 
   let password = '';
   let order = [];      // utwory w kolejności na stronie
+  const trackOf = new Map(); // kaseta → utwór
   let current = null;  // { track, cart }
   const loaded = new Map(); // id → Promise<blob URL>
+  const ready = new Map();  // id → blob URL, gdy już pobrany
 
   async function call(body) {
     const res = await fetch(ENDPOINT, {
@@ -43,7 +45,9 @@
         const bin = atob(data);
         const bytes = new Uint8Array(bin.length);
         for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
-        return URL.createObjectURL(new Blob([bytes], { type: mime }));
+        const url = URL.createObjectURL(new Blob([bytes], { type: mime }));
+        ready.set(track.id, url);
+        return url;
       });
       p.catch(() => loaded.delete(track.id));
       loaded.set(track.id, p);
@@ -82,10 +86,18 @@
     now.hidden = false;
     nowTitle.textContent = track.song;
 
-    if (!loaded.has(track.id)) {
-      audio.src = SILENCE;
-      audio.play().catch(() => {});
+    // pobrany utwór rusza od razu, w tym samym kliknięciu; inaczej cisza zatrzymuje
+    // poprzedni i odblokowuje <audio>, zanim ten się pobierze
+    if (ready.has(track.id)) {
+      audio.src = ready.get(track.id);
+      cart.querySelector('.seek').disabled = false;
+      audio.play().then(() => prefetchAfter(track), () => {
+        if (current.track === track) time.textContent = 'Kliknij, żeby puścić';
+      });
+      return;
     }
+    audio.src = SILENCE;
+    audio.play().catch(() => {});
     cart.classList.add('is-loading');
     time.textContent = 'Stroję…';
     try {
@@ -198,6 +210,7 @@
       }
     });
     order.push(track);
+    trackOf.set(node, track);
     return node;
   }
 
@@ -213,6 +226,7 @@
 
     sheet.textContent = '';
     order = [];
+    trackOf.clear();
     const placed = new Set();
     const blocks = parse(data.sheet || '');
     if (!blocks.some(b => b.type === 'name')) blocks.unshift({ type: 'name', text: data.character });
@@ -249,6 +263,24 @@
     gate.hidden = true;
     sheet.hidden = false;
     if (order[0]) load(order[0]).catch(() => {});
+    prefetchNearby();
+  }
+
+  // utwór zaczyna się pobierać, gdy jego kaseta zbliża się do ekranu,
+  // więc zwykle jest gotowy, zanim czytający do niego dojdzie
+  let observer = null;
+  function prefetchNearby() {
+    if (observer) observer.disconnect();
+    if (!('IntersectionObserver' in window)) return;
+    observer = new IntersectionObserver(entries => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        observer.unobserve(e.target);
+        const track = trackOf.get(e.target);
+        if (track) load(track).catch(() => {});
+      }
+    }, { rootMargin: '150% 0px' });
+    for (const node of trackOf.keys()) observer.observe(node);
   }
 
   /* ---------- hasło ---------- */

@@ -42,6 +42,97 @@ body.is-live .station__now .i-pause { display: block; }
 .unlock .toggle:disabled { opacity: .6; cursor: progress; }
 .gate .error { flex-basis: 100%; min-height: 1.6em; margin: 10px 0 0; color: var(--neon-hot); font-size: 1rem; }
 
+/* ---------- postacie, pod hasłem ---------- */
+.cast { margin-top: clamp(64px, 11vw, 112px); }
+.cast h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-variation-settings: "wdth" 80;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 5vw, 2.4rem);
+  line-height: 1.1;
+  color: var(--bone);
+}
+.gate .cast__lead { margin: 10px 0 0; max-width: 56ch; }
+
+.person { margin-top: clamp(40px, 7vw, 56px); padding-top: 26px; border-top: 1px solid var(--bruise-line); }
+.person__head { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 0 14px; margin-bottom: 14px; }
+.person h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-variation-settings: "wdth" 78;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4.4vw, 2rem);
+  line-height: 1.05;
+  color: var(--bone);
+}
+.gate .person__role {
+  margin: 0;
+  font-family: var(--script);
+  font-size: clamp(1.5rem, 4vw, 1.8rem);
+  line-height: 1;
+  color: var(--neon-hot);
+  transform: rotate(-3deg);
+  transform-origin: left bottom;
+}
+.gate .person__meta { grid-column: 1 / -1; margin: 4px 0 0; font-style: italic; color: var(--fog-dim); }
+.gate .person > p { margin: 0 0 16px; }
+
+.person__facts { margin: 0; }
+.person__facts dt {
+  margin-top: 14px;
+  font-family: var(--display);
+  font-variation-settings: "wdth" 85;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--teal);
+}
+.person__facts dt:first-child { margin-top: 0; }
+.person__facts dd { margin: 2px 0 0; }
+
+/* triggery zasłonięte jak wycięty fragment audycji, dopóki ktoś ich nie odsłoni */
+.bleep { margin-top: 20px; }
+.bleep summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  width: fit-content;
+  max-width: 100%;
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--display);
+  font-variation-settings: "wdth" 85;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #E0A8C4;
+}
+.bleep summary::-webkit-details-marker { display: none; }
+.bleep summary > span:not(.bleep__tape) { text-decoration: underline 1px #6E2447; text-underline-offset: 4px; }
+.bleep summary:hover > span:not(.bleep__tape) { text-decoration-color: currentColor; }
+.bleep__hide, .bleep[open] .bleep__show, .bleep[open] .bleep__tape { display: none; }
+.bleep[open] .bleep__hide { display: inline; }
+
+.bleep__tape { display: flex; flex-wrap: wrap; gap: 6px; }
+.bleep__tape span {
+  width: calc(var(--w) * 0.5em);
+  max-width: 100%;
+  height: 1.55em;
+  border-radius: 999px;
+  border: 1px solid #6E2447;
+  background: repeating-linear-gradient(135deg, #6E244755 0 6px, transparent 6px 12px);
+  font-size: 0.92rem;
+}
+.bleep summary:hover .bleep__tape span { border-color: #B8367E; }
+.bleep .triggers { margin-top: 12px; }
+.bleep[open] .triggers { animation: unbleep .35s ease-out; }
+@keyframes unbleep { from { opacity: 0; filter: blur(6px); } }
+
+@media (max-width: 520px) {
+  .person__head { grid-template-columns: 1fr; }
+  .gate .person__role { margin-top: 6px; }
+}
+
 /* ---------- treść ---------- */
 .sheet__name {
   margin: 0 0 clamp(28px, 5vw, 44px);
@@ -175,6 +266,6 @@ body.is-live .cart:not(.is-live) .knob .i-pause { display: none; }
   .cart__transport { grid-column: 1 / -1; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .sheet__name, .cart.is-loading .cart__time { animation: none; }
+  .sheet__name, .cart.is-loading .cart__time, .bleep[open] .triggers { animation: none; }
   .cart .knob, .cart .knob svg, .cart__lamp { transition: none; }
 }

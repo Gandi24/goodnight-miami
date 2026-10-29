@@ -32,14 +32,6 @@
   <main>
     <section class="gate" id="gate">
       <h1>Ludzie Radia</h1>
-      <p>Twoja postać i jej muzyka. Wpisz hasło, które dostaniesz od autora larpa.</p>
-      <form class="unlock" id="unlock">
-        <label for="password">Hasło</label>
-        <input id="password" type="password" autocomplete="current-password" required>
-        <button class="toggle" type="submit">Otwórz</button>
-        <p class="error" id="error" role="alert"></p>
-      </form>
-
       <section class="cast" aria-labelledby="cast-title">
         <h2 id="cast-title">Postacie</h2>
         <p class="cast__lead">Kto będzie w studiu Radia Lighthouse tej nocy. Triggery każdej postaci są zasłonięte, odsłoń je, jeśli chcesz je poznać.</p>
@@ -128,6 +120,16 @@
           </details>
         </article>
       </section>
+
+      <div class="unlock-wrap">
+        <p>Twoja postać i jej muzyka. Wpisz hasło, które dostaniesz od autora larpa.</p>
+        <form class="unlock" id="unlock">
+          <label for="password">Hasło</label>
+          <input id="password" type="password" autocomplete="current-password" required>
+          <button class="toggle" type="submit">Otwórz</button>
+          <p class="error" id="error" role="alert"></p>
+        </form>
+      </div>
     </section>
 
     <article class="sheet" id="sheet" hidden></article>

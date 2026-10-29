@@ -24,6 +24,8 @@ body.is-live .station__now .i-pause { display: block; }
 /* ---------- hasło ---------- */
 .gate h1 { margin: 0; font-family: var(--script); font-weight: 400; font-size: clamp(3rem, 10vw, 5rem); line-height: 1.1; color: var(--bone); }
 .gate p { margin: 8px 0 28px; }
+.unlock-wrap { margin-top: clamp(56px, 9vw, 88px); padding-top: 26px; border-top: 1px solid var(--bruise-line); }
+.gate .unlock-wrap > p { margin-top: 0; color: var(--bone); }
 .unlock { display: flex; flex-wrap: wrap; gap: 10px; }
 .unlock label { flex-basis: 100%; font-family: var(--display); font-variation-settings: "wdth" 85; font-weight: 600; font-size: 0.9rem; color: var(--teal); }
 .unlock input {
@@ -42,8 +44,8 @@ body.is-live .station__now .i-pause { display: block; }
 .unlock .toggle:disabled { opacity: .6; cursor: progress; }
 .gate .error { flex-basis: 100%; min-height: 1.6em; margin: 10px 0 0; color: var(--neon-hot); font-size: 1rem; }
 
-/* ---------- postacie, pod hasłem ---------- */
-.cast { margin-top: clamp(64px, 11vw, 112px); }
+/* ---------- postacie, nad hasłem ---------- */
+.cast { margin-top: clamp(20px, 4vw, 32px); }
 .cast h2 {
   margin: 0;
   font-family: var(--display);

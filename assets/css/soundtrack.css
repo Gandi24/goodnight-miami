@@ -46,16 +46,7 @@ body.is-live .station__now .i-pause { display: block; }
 
 /* ---------- postacie, nad hasłem ---------- */
 .cast { margin-top: clamp(20px, 4vw, 32px); }
-.cast h2 {
-  margin: 0;
-  font-family: var(--display);
-  font-variation-settings: "wdth" 80;
-  font-weight: 700;
-  font-size: clamp(1.9rem, 5vw, 2.4rem);
-  line-height: 1.1;
-  color: var(--bone);
-}
-.gate .cast__lead { margin: 10px 0 0; max-width: 56ch; }
+.gate .cast__lead { margin: 0; max-width: 56ch; }
 
 .person { margin-top: clamp(40px, 7vw, 56px); padding-top: 26px; border-top: 1px solid var(--bruise-line); }
 .person__head { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 0 14px; margin-bottom: 14px; }

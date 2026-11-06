@@ -5,7 +5,6 @@
   // krótka cisza: odtworzona w momencie kliknięcia odblokowuje <audio> w Safari,
   // zanim właściwy utwór zdąży się pobrać
   const SILENCE = 'data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==';
-  const KEY = 'gm-soundtrack-password';
 
   const gate = document.getElementById('gate');
   const form = document.getElementById('unlock');
@@ -15,6 +14,7 @@
   const tpl = document.getElementById('cartTpl');
   const now = document.getElementById('now');
   const nowTitle = document.getElementById('nowTitle');
+  const back = document.getElementById('sheetBack');
 
   // utwory zapętlają się: to muzyka w tle do czytania
   const audio = new Audio();
@@ -91,7 +91,7 @@
       audio.src = ready.get(track.id);
       cart.querySelector('.seek').disabled = false;
       audio.play().catch(() => {
-        if (current.track === track) time.textContent = 'Kliknij, żeby puścić';
+        if (current && current.track === track) time.textContent = 'Kliknij, żeby puścić';
       });
       return;
     }
@@ -101,13 +101,13 @@
     time.textContent = 'Stroję…';
     try {
       const url = await load(track);
-      if (current.track !== track) return;
+      if (!current || current.track !== track) return;
       cart.classList.remove('is-loading');
       cart.querySelector('.seek').disabled = false;
       audio.src = url;
       await audio.play();
     } catch (err) {
-      if (current.track !== track) return;
+      if (!current || current.track !== track) return;
       cart.classList.remove('is-loading');
       time.textContent = err.name === 'NotAllowedError' ? 'Kliknij, żeby puścić' : 'Brak sygnału, kliknij ponownie';
     }
@@ -251,8 +251,7 @@
       sheet.append(section);
     }
 
-    gate.hidden = true;
-    sheet.hidden = false;
+    showSheet(true);
     prefetchAll(order);
   }
 
@@ -268,15 +267,33 @@
 
   /* ---------- hasło ---------- */
 
+  function showSheet(open) {
+    gate.hidden = open;
+    sheet.hidden = !open;
+    back.hidden = !open;
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  function closeSheet() {
+    if (current) {
+      setLive(false);
+      current.cart.classList.remove('is-loading');
+      current = null;
+    }
+    audio.pause();
+    now.hidden = true;
+    input.value = '';
+    showSheet(false);
+  }
+
   async function unlock(pw) {
     password = pw;
     error.textContent = '';
     form.querySelector('button').disabled = true;
     try {
       render(await call({}));
-      try { sessionStorage.setItem(KEY, pw); } catch (e) {}
+      history.pushState({ sheet: true }, '');
     } catch (err) {
-      try { sessionStorage.removeItem(KEY); } catch (e) {}
       error.textContent = err.message === 'wrong_password'
         ? 'Złe hasło. Ta częstotliwość jest zakodowana.'
         : 'Nie udało się połączyć ze stacją. Spróbuj za chwilę.';
@@ -290,7 +307,11 @@
     if (input.value) unlock(input.value);
   });
 
-  let saved = null;
-  try { saved = sessionStorage.getItem(KEY); } catch (e) {}
-  if (saved) unlock(saved);
+  // karta to osobny krok w historii: „wstecz” i odświeżenie wracają do listy postaci
+  back.addEventListener('click', () => history.back());
+  window.addEventListener('popstate', () => {
+    if (history.state && history.state.sheet && sheet.childElementCount) showSheet(true);
+    else closeSheet();
+  });
+  if (history.state && history.state.sheet) history.back();
 })();

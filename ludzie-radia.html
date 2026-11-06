@@ -22,6 +22,7 @@
       <span class="onair" aria-hidden="true">ON AIR</span>
       <span>Radio Lighthouse 92.3 FM</span>
     </div>
+    <button class="station__now station__back" id="sheetBack" type="button" hidden>Wróć do postaci</button>
     <button class="station__now" id="now" type="button" hidden>
       <svg class="i-play" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg>
       <svg class="i-pause" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h3v10H2zM7 1h3v10H7z" fill="currentColor"/></svg>
@@ -145,7 +146,7 @@
         <p>Twoja postać i jej muzyka. Wpisz hasło, które dostaniesz od autora larpa.</p>
         <form class="unlock" id="unlock">
           <label for="password">Hasło</label>
-          <input id="password" type="password" autocomplete="current-password" required>
+          <input id="password" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-1p-ignore data-lpignore="true" required>
           <button class="toggle" type="submit">Otwórz</button>
           <p class="error" id="error" role="alert"></p>
         </form>

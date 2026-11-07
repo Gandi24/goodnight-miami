@@ -241,8 +241,8 @@
       }
     }
 
-    // utwory, których karta nie umieszcza w tekście
-    for (const group of data.groups) {
+    // bez karty postaci utwory idą listą; karta pokazuje tylko te, które sama umieszcza
+    for (const group of data.sheet ? [] : data.groups) {
       const rest = tracks.filter(t => t.group === group.title && !placed.has(t));
       if (!rest.length) continue;
       const section = el('section', 'sheet__more');
